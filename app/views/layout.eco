@@ -1,0 +1,15 @@
+<div class="nav nav-bar"></div>
+
+
+<div class="container">
+
+  <div class="hero-unit">
+    <h1>Welcome to OPF FRONTEND</h1>
+    <ul>
+      <li>Edit /app/views/layout.eco for JAVASCRIPT TEMPLATE BASED LAYOUT</li>
+      <li>UNCOMMENT /server/routes.coffee for dynamic routing</li>
+      <li>Currently running in static mode /public/index.html</li>
+    </ul>
+  </div>
+
+</div>
