@@ -1,7 +1,9 @@
 port =  process.env.PORT || 9294
 
-LoadEnv = require("./loadEnv")
-LoadEnv.load()
+if !process.env.NODE_ENV
+  console.log "Loading Env Variables"
+  LoadEnv = require("./loadEnv")
+  LoadEnv.load()
 
 express = require('express')
 RedisController = require('./controllers/redisController')
