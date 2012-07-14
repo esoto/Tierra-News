@@ -1,9 +1,11 @@
 port =  process.env.PORT || 9294
 
+LoadEnv = require("./loadEnv")
+LoadEnv.load()
+
 express = require('express')
 RedisController = require('./controllers/redisController')
 
-fs = require('fs')
 Routes = require("./routes")
 Opfserver = require("opfcli")
 TwitterController = require('./controllers/twitterController')

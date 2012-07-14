@@ -24,7 +24,7 @@
     "kaiseki"       :  "0.3.0",
     "xml2js"        :  "0.1.14", 
     "connect-redis" :  "*",
-	"twilio"        :  "0.4.0"
+    "twilio"        :  "0.4.0"
   }
 }
 
