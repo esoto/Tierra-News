@@ -18,7 +18,7 @@ class RedisController
   
   @getClient: =>
     return false if !process.env.REDISTOGO_URL
-    return @client = @client
+    return @client if @client
 
     rtg   = require("url").parse(process.env.REDISTOGO_URL);
     @client = Redis.createClient(rtg.port, rtg.hostname);

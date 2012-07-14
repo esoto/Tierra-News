@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h3>Post Free News</h3>
+</div>
+
+<div class="modal-body">
+  <form class="form-horizontal">
+          <fieldset>
+
+            <div class="control-group">
+              <label class="control-label" for="input01">Title</label>
+              <div class="controls">
+                <input type="text" required autofocus class="input-xlarge title" id="input01">
+                <p class="help-block">In addition to freeform text, any HTML5 text-based input appears like so.</p>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="input01">Url</label>
+              <div class="controls">
+                <input required value="<%= @link %>" type="text" class="input-xlarge link" id="input01">
+              </div>
+            </div>
+            
+          </fieldset>
+        </form>
+
+  <p class="alert"></p>
+
+</div>
+
+<div class="modal-footer">
+  <a class="btn btn-primary  accept">Ok</a>
+  <a class="btn pull-left  cancel">Cancel</a>
+
+</div>
+
+
+
+
+
+

@@ -46,18 +46,16 @@ class TwitterController
 
         if results
           req.session.authData = TwitterController.toParseAuthData(results , oauthAccessToken , oauthAccessTokenSecret)   
-          TwitterController.prepareReq(req)
+          req.session.oauthRequestToken = null
+          req.session.oauthRequestTokenSecret = null
           
           #get extra details
-          @getJSON "/users/show.json?screen_name=#{req.user.twitter.screen_name}", req, (err, data, response) ->
+          req.body = {}
+          req.body.authData = req.session.authData
+          @getJSON "/users/show.json?screen_name=#{req.session.authData.twitter.screen_name}", req, (err, data, response) ->
             req.session.authData.twitter.details = data
             res.redirect "/"
   
-  @prepareReq: (req) ->
-    req.session.oauthRequestToken = null
-    req.session.oauthRequestTokenSecret = null
-    req.user = {}
-    req.user.twitter = req.session.authData.twitter
 
   @toParseAuthData: (results,oauthAccessToken,oauthAccessTokenSecret) ->
     twitter:
@@ -83,29 +81,29 @@ class TwitterController
 
 
   get: (url, req, callback) ->
-    callback 'no twitter session' unless req.user.twitter?
-    @consumer.get url, req.user.twitter.accessToken, req.user.twitter.accessTokenSecret,
+    callback 'no twitter session' unless req.body.authData.twitter?
+    @consumer.get url, req.body.authData.twitter.accessToken, req.body.authData.twitter.accessTokenSecret,
     (err, data, response) ->
       callback err, data, response
 
   getJSON: (apiPath, req, callback) ->
-    callback 'no twitter session' unless req.user.twitter?
-    @consumer.get "http://api.twitter.com/1#{apiPath}", req.user.twitter.accessToken, req.user.twitter.accessTokenSecret,
+    callback 'no twitter session' unless req.body.authData.twitter?
+    @consumer.get "http://api.twitter.com/1#{apiPath}", req.body.authData.twitter.accessToken, req.body.authData.twitter.accessTokenSecret,
     (err, data, response) ->
       console.log data
       console.log "dataend"
       callback err, JSON.parse(data), response
 
   post: (url, body, req, callback) ->
-    callback 'no twitter session' unless req.user.twitter?
-    @consumer.post url, req.user.twitter.accessToken, req.user.twitter.accessTokenSecret, body,
+    callback 'no twitter session' unless req.body.authData.twitter?
+    @consumer.post url, req.body.authData.twitter.accessToken, req.body.authData.twitter.accessTokenSecret, body,
     (err, data, response) ->
       callback err, data, response
 
   postJSON: (apiPath, body, req, callback) ->
-    callback 'no twitter session' unless req.user.twitter?
+    callback 'no twitter session' unless req.body.authData.twitter?
     url = "http://api.twitter.com/1#{apiPath}"
-    @consumer.post url, req.user.twitter.accessToken, req.user.twitter.accessTokenSecret, body,
+    @consumer.post url, req.body.authData.twitter.accessToken, req.body.authData.twitter.accessTokenSecret, body,
     (err, data, response) ->
       callback err, JSON.parse(data), response
 

@@ -16,7 +16,7 @@ class GeneralModal extends Spine.Controller
     @render()
 
   render: =>
-    @html require("views/modals/generalModal")(@data)
+    @html require("views/modals/generalModals/#{@data.template}")(@data)
 
   onClose: =>
     Spine.trigger "hide_modal"

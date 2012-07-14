@@ -4,8 +4,8 @@ Model  = Spine.Model
 
 $.ajaxSetup
   headers: 
-    "X-Parse-Application-Id" : "",
-    "X-Parse-REST-API-Key": ""
+    "X-Parse-Application-Id" : "suSmDiBl2nMusjlj5yJHLJgC2We56lgAsSrtw2eU" ,
+    "X-Parse-REST-API-Key": "f2AR8x9UJH09iPoWdVf9YCWRTJVXrvP4BGF1PLfP"
 
 Ajax =
   getURL: (object) ->
@@ -188,7 +188,7 @@ class Singleton extends Base
       options.error?.apply(@record, [xhr, statusText, error] )
 
 # Ajax endpoint
-Model.host = 'https://api.parse.com/1'
+Model.host = 'https://api.parse.com/1/classes'
 
 Include =
   ajax: -> new Singleton(this)
