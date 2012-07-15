@@ -20,8 +20,6 @@ class Routes
       link = "'#{req.params.link}'" || false
       res.render "list" , { authData: JSON.stringify(auth) , posts: JSON.stringify(req.posts) , current: link  }
 
-
-
     
 
 module.exports = Routes

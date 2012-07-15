@@ -24,8 +24,10 @@
     "kaiseki"       :  "0.3.0",
     "xml2js"        :  "0.1.14", 
     "connect-redis" :  "*",
-    "twilio"        :  "0.4.0"
+    "twilio"        :  "0.4.0",
     "b64url":  "1.0.3",
-    "restler": "2.0.0"
+    "restler": "2.0.0",
+    "faceplate" : "*"
+
   }
 }

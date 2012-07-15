@@ -5,14 +5,17 @@
 <div class="modal-body">
   
   <div class="row-fluid">
-    <div class="span9">
+    <div class="span6">
     <h4 class="alert alert-success">Los usuarios registrados pueden publicar, noticias, comentarios y votar por sus favoritas</h4>
     </div>
     
     <div class="span3">  
       <a href="/sessions/twitter/login?lastView=<%= window.location.pathname %>" class="btn btn-large btn-success pull-right">Login with Twitter</a>
     </div>
-    
+
+    <div class="span3">  
+      <a href="/sessions/facebook/login" class="btn btn-large btn-success pull-right">Login with Facebook</a>
+    </div>    
   </div>
   
   <h5 class="pull-right">solo toma un click, y se aprovecha mucho mas</h5>
